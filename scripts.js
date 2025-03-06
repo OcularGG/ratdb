@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
     }
-
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-    document.getElementById('language-selector').addEventListener('change', changeLanguage);
 });
 
 function handleLogin(event) {
@@ -22,19 +19,6 @@ function handleLogin(event) {
     }
 }
 
-function toggleTheme() {
-    document.body.classList.toggle('bg-dark');
-    document.body.classList.toggle('text-white');
-    document.body.classList.toggle('bg-light');
-    document.body.classList.toggle('text-dark');
-}
-
-function changeLanguage() {
-    const language = document.getElementById('language-selector').value;
-    // Implement language change logic
-    alert(`Language changed to: ${language}`);
-}
-
 function filterReports(server) {
     // Function to filter reports based on server
     const rows = document.querySelectorAll('#report-table tbody tr');
@@ -45,20 +29,4 @@ function filterReports(server) {
             row.style.display = 'none';
         }
     });
-}
-
-function firstPage() {
-    // Implement pagination logic
-}
-
-function prevPage() {
-    // Implement pagination logic
-}
-
-function nextPage() {
-    // Implement pagination logic
-}
-
-function lastPage() {
-    // Implement pagination logic
 }
