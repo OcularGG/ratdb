@@ -16,18 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $currentGuild = $_POST['currentGuild'];
         $previousGuilds = $_POST['previousGuilds'];
         $dateOfIncident = $_POST['dateOfIncident'];
+        $incidentType = $_POST['incidentType'];
         $incidentReport = $_POST['incidentReport'];
         $loss = $_POST['loss'];
         $server = $_POST['server'];
         $evidence = $_FILES['evidence'];
 
-        // Save the form data to the database or send an email, etc.
-        // This is just an example, and should be replaced with your actual processing code.
-        echo "Form submitted successfully!";
-    } else {
-        echo "Turnstile verification failed. Please try again.";
-    }
-} else {
-    echo "Invalid request method.";
-}
-?>
+        // Save the form data to the database or send an email,

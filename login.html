@@ -6,8 +6,24 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Hack-ZeroSlash';
+            src: url('fonts/hack/hack-regular.woff2') format('woff2'),
+                 url('fonts/hack/hack-regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        code, pre, .tooltip-icon {
+            font-family: 'Hack-ZeroSlash', monospace;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-light text-dark">
     <header class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">RatDB</a>
@@ -34,21 +50,15 @@
     </header>
     <main class="container mt-5">
         <h1 class="text-center">Login</h1>
-        <form id="login-form" class="mt-4">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+        <div class="text-center mt-4">
+            <a href="discord-login.php" class="btn btn-primary">Login with Discord</a>
+        </div>
     </main>
     <footer class="bg-light text-center py-4 mt-5">
         <div class="container">
             <p>&copy; 2025 RatDB</p>
         </div>
     </footer>
-    <script src="scripts.js
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     $('[data-toggle="tooltip"]').tooltip();
+
+    // Populate the table with random data for testing
+    populateTableWithRandomData();
 });
 
 function filterReports(server) {
@@ -46,4 +49,26 @@ function nextPage() {
 
 function lastPage() {
     // Implementation for last page navigation
+}
+
+function populateTableWithRandomData() {
+    const tableBody = document.querySelector('#report-table tbody');
+    tableBody.innerHTML = '';
+
+    for (let i = 0; i < 300; i++) {
+        const row = document.createElement('tr');
+        const rat = `Rat${i + 1}`;
+        const loss = (Math.random() * 1000).toFixed(2);
+        const incidentType = ['Fraud', 'Scam', 'Theft'][Math.floor(Math.random() * 3)];
+        const date = new Date(Date.now() - Math.floor(Math.random() * 1e10)).toLocaleDateString();
+
+        row.innerHTML = `
+            <td>${rat}</td>
+            <td>${loss}</td>
+            <td>${incidentType}</td>
+            <td>${date}</td>
+        `;
+
+        tableBody.appendChild(row);
+    }
 }
