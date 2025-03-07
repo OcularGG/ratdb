@@ -1,42 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
+    const themeToggle = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme) {
+        document.body.classList.toggle('bg-dark', storedTheme === 'dark');
+        document.body.classList.toggle('text-white', storedTheme === 'dark');
+        themeToggle.textContent = storedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    } else {
+        themeToggle.textContent = 'Dark Mode';
     }
 
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-    document.getElementById('language-selector').addEventListener('change', changeLanguage);
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('bg-dark');
+        document.body.classList.toggle('text-white');
+        const isDarkMode = document.body.classList.contains('bg-dark');
+        themeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
-function handleLogin(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username === 'RatGuard' && password === 'OCULARGuard2025') {
-        alert('Login successful');
-        // Redirect to admin dashboard
-        window.location.href = 'admin.html';
-    } else {
-        alert('Invalid username or password');
-    }
-}
-
-function toggleTheme() {
-    document.body.classList.toggle('bg-dark');
-    document.body.classList.toggle('text-white');
-    document.body.classList.toggle('bg-light');
-    document.body.classList.toggle('text-dark');
-}
-
-function changeLanguage() {
-    const language = document.getElementById('language-selector').value;
-    // Implement language change logic
-    alert(`Language changed to: ${language}`);
-}
-
 function filterReports(server) {
-    // Function to filter reports based on server
     const rows = document.querySelectorAll('#report-table tbody tr');
     rows.forEach(row => {
         if (server === 'ALL' || row.dataset.server === server) {
@@ -48,17 +33,17 @@ function filterReports(server) {
 }
 
 function firstPage() {
-    // Implement pagination logic
+    // Implementation for first page navigation
 }
 
 function prevPage() {
-    // Implement pagination logic
+    // Implementation for previous page navigation
 }
 
 function nextPage() {
-    // Implement pagination logic
+    // Implementation for next page navigation
 }
 
 function lastPage() {
-    // Implement pagination logic
+    // Implementation for last page navigation
 }
