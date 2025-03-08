@@ -1,12 +1,14 @@
-import { initializeSentry } from './utils/sentry';
-import * as Sentry from '@sentry/react';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { App } from './App';
+import './index.css';
 
-// Initialize Sentry
-initializeSentry();
+const container = document.getElementById('root');
+if (!container) throw new Error('Failed to find root element');
+const root = createRoot(container);
 
-// Wrap your app with Sentry's error boundary
-const App = Sentry.withProfiler(() => (
-  <Sentry.ErrorBoundary fallback={<ErrorFallback />}>
-    <YourAppComponent />
-  </Sentry.ErrorBoundary>
-));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

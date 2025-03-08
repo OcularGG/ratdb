@@ -1,11 +1,22 @@
 [build]
   command = "npm run build"
   publish = "build"
+  functions = "netlify/functions"
+
+[dev]
+  command = "npm start"
+  targetPort = 3000
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[functions]
-  directory = "netlify/functions"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://*.supabase.co; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
