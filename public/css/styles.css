@@ -21,13 +21,34 @@ body.dark {
   padding: 20px;
 }
 
-.btn {
-  margin: 5px;
+.navbar {
+  padding: 1rem;
 }
 
-table {
-  width: 100%;
+.footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.table-responsive {
   margin-top: 20px;
+}
+
+.search-form {
+  margin: 20px 0;
+}
+
+.btn {
+  margin: 5px;
 }
 
 .form-control {

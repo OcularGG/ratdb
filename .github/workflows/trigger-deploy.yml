@@ -6,9 +6,9 @@ on:
   workflow_dispatch:        # Allows manual triggers
   push:
     branches:
-      - main              # or your default branch name
+      - main
     paths:
-      - 'src/**'          # Only trigger on source code changes
+      - 'src/**'
       - 'public/**'
       - 'package.json'
       - 'netlify.toml'
