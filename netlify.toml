@@ -1,11 +1,8 @@
 [build]
+  publish = "public"
   command = "npm run build"
-  publish = "build"
 
-[build.environment]
-  NODE_VERSION = "14"
-  REACT_APP_SUPABASE_URL = "your-supabase-url"
-  REACT_APP_SUPABASE_KEY = "your-supabase-key"
-  DISCORD_CLIENT_ID = "your-discord-client-id"
-  DISCORD_CLIENT_SECRET = "your-discord-client-secret"
-  DISCORD_REDIRECT_URI = "your-discord-redirect-uri"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
