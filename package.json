@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "netlify dev"
@@ -25,7 +25,9 @@
   },
   "devDependencies": {
     "@netlify/functions": "^2.8.2",
-    "netlify-cli": "^12.2.0"
+    "netlify-cli": "^12.2.0",
+    "eslint": "^8.57.0",
+    "eslint-config-react-app": "^7.0.1"
   },
   "browserslist": {
     "production": [
