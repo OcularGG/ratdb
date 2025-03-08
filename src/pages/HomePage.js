@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import supabase from '../supabaseClient';
 import { Container, Button, Table, Form } from 'react-bootstrap';
 
 const HomePage = () => {
@@ -8,22 +8,23 @@ const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    axios.get(`/api/data?view=${view}`).then(response => {
-      setData(response.data);
-    });
-  }, [view]);
+    fetchData();
+  }, [view, searchTerm]);
 
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-    axios.get(`/api/data?view=${view}&search=${e.target.value}`).then(response => {
-      setData(response.data);
-    });
+  const fetchData = async () => {
+    const table = view.toLowerCase() + '_server';
+    let { data: ratdb, error } = await supabase
+      .from(table)
+      .select('*')
+      .ilike('rat', `%${searchTerm}%`);
+    if (error) console.log('Error fetching data:', error);
+    else setData(ratdb);
   };
 
   return (
     <Container>
       <h1 className="my-4">Albion ratDB</h1>
-      <Form.Control type="text" placeholder="Search..." value={searchTerm} onChange={handleSearch} />
+      <Form.Control type="text" placeholder="Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
       <div className="my-3">
         <Button onClick={() => setView('WEST')}>WEST</Button>
         <Button onClick={() => setView('EAST')}>EAST</Button>
@@ -39,10 +40,10 @@ const HomePage = () => {
         </thead>
         <tbody>
           {data.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.server}</td>
+            <tr key={item.rat_id}>
+              <td>{item.rat_id}</td>
+              <td>{item.rat}</td>
+              <td>{view}</td>
             </tr>
           ))}
         </tbody>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { signInWithDiscord, signOut } from '../supabaseClient';
 
-const Navigation = () => {
+const Navigation = ({ user }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand as={Link} to="/">Albion ratDB</Navbar.Brand>
@@ -12,7 +13,11 @@ const Navigation = () => {
           <Nav.Link as={Link} to="/">Home</Nav.Link>
           {/* Add more links here */}
         </Nav>
-        <Button as={Link} to="/auth/discord" variant="outline-light">Login with Discord</Button>
+        {user ? (
+          <Button onClick={signOut} variant="outline-light">Logout</Button>
+        ) : (
+          <Button onClick={signInWithDiscord} variant="outline-light">Login with Discord</Button>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );

@@ -6,7 +6,6 @@ import TermsOfUse from './pages/TermsOfUse';
 import FairReportingPolicy from './pages/FairReportingPolicy';
 import NotFound from './pages/NotFound';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="/fair-reporting-policy" component={FairReportingPolicy} />
           <Route component={NotFound} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );
