@@ -1,0 +1,29 @@
+ratdb/
+├── .github/
+│   └── workflows/
+│       └── trigger-deploy.yml
+├── public/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── theme.js
+│   ├── index.html
+│   └── documentation.html
+├── src/
+│   ├── components/
+│   │   └── Navigation.js
+│   ├── pages/
+│   │   └── HomePage.js
+│   ├── App.js
+│   ├── index.js
+│   └── supabaseClient.js
+├── routes/
+│   └── items.js
+├── supabase/
+│   └── migrations/
+│       ├── 20240308_create_tables.sql
+│       └── 20240308_trigger_netlify_build.sql
+├── .env.example
+├── README.md
+├── netlify.toml
+└── package.json
