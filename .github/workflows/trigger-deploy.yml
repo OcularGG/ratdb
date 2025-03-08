@@ -1,0 +1,25 @@
+name: Trigger Netlify Deploy
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Runs every 6 hours
+  workflow_dispatch:        # Allows manual triggers
+  push:
+    branches:
+      - main              # or your default branch name
+    paths:
+      - 'src/**'          # Only trigger on source code changes
+      - 'public/**'
+      - 'package.json'
+      - 'netlify.toml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Trigger Netlify Build Hook
+        run: |
+          curl -X POST -d {} https://api.netlify.com/build_hooks/67cca970825048f8e28c8498
