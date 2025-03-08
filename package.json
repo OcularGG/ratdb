@@ -2,19 +2,39 @@
   "name": "ratdb",
   "version": "1.0.0",
   "description": "Albion Online ratDB",
-  "main": "server.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "react-scripts build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "netlify dev"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^1.0.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "swagger-ui-express": "^4.1.6",
-    "swagger-jsdoc": "^4.0.0"
+    "@supabase/supabase-js": "^2.x.x",
+    "react": "^18.x.x",
+    "react-dom": "^18.x.x",
+    "react-router-dom": "^6.x.x",
+    "react-scripts": "5.x.x",
+    "dotenv": "^16.x.x",
+    "express": "^4.x.x",
+    "swagger-ui-express": "^4.x.x",
+    "swagger-jsdoc": "^4.x.x"
   },
-  "devDependencies": {},
-  "author": "OcularGG",
-  "license": "ISC"
+  "devDependencies": {
+    "@netlify/functions": "^2.x.x",
+    "netlify-cli": "^x.x.x"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

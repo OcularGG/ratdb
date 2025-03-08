@@ -8,8 +8,9 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const app = express();
 app.use(express.json());
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
+// Updated to use the correct environment variable names
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const swaggerOptions = {
@@ -22,7 +23,9 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: process.env.NODE_ENV === 'production' 
+          ? 'https://your-production-url' 
+          : 'http://localhost:3000',
       },
     ],
   },
@@ -36,6 +39,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to RatDB API');
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
