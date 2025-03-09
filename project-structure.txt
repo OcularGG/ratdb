@@ -1,0 +1,18 @@
+albion-ratdb/
+├── src/
+│   ├── components/        # Reusable UI components
+│   │   ├── admin/        # Admin-specific components
+│   │   ├── common/       # Shared components
+│   │   ├── layout/       # Layout components
+│   │   └── reports/      # Report-related components
+│   ├── config/           # Configuration files
+│   ├── contexts/         # React context providers
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Library initializations
+│   ├── pages/            # Page components
+│   ├── services/         # API and business logic
+│   ├── styles/           # Global styles
+│   ├── types/            # TypeScript type definitions
+│   └── utils/            # Utility functions
+├── public/              # Static assets
+└── supabase/           # Database migrations and configurations
